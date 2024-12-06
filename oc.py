@@ -1,10 +1,13 @@
 import numpy as np
-import matplotlib
+import matplotlib.pyplot as plt
 import pandas as pd
+from sklearn.manifold import TSNE
+from sklearn.preprocessing import StandardScaler
 
-dados=pd.read_csv("wdbc.csv")
-# Converter para numpy e adicionar coluna com np.append
-valores = dados.to_numpy()
-valores_com_1s = np.hstack((np.ones((valores.shape[0], 1)), valores))
+# Carregar o arquivo CSV com uma única coluna
+dados = pd.read_csv('wdbc.csv', sep=';')
+dados = dados.to_numpy()
+uns = np.ones ((dados.shape[0],1))
+dados = valores = np.append(uns,dados, axis = 1)
+print (dados)
 
-print(valores_com_1s)
